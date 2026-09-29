@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 1437" role="img" aria-label="倉庫1階 棚番レイアウト"><style>text{font-family:Meiryo,"Noto Sans JP",sans-serif}</style>
+<rect width="660" height="1437" fill="white"/>
+<rect x="18.00" y="12.00" width="624.00" height="58.00" rx="7" fill="#10364e" stroke="#10364e" stroke-width="0"/>
+<text x="34.00" y="48.00" font-size="26.00" fill="#ffffff" text-anchor="start" font-weight="700">倉庫1階</text>
+<text x="590.00" y="35.00" font-size="12.00" fill="#bcd4e2" text-anchor="middle" font-weight="400">01 / 06</text>
+<rect x="154.00" y="316.00" width="78.00" height="82.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="193.00" y="362.00" font-size="19.00" fill="#19364a" text-anchor="middle" font-weight="400">リフト</text>
+<rect x="116.00" y="454.00" width="289.00" height="97.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="260.50" y="507.50" font-size="19.00" fill="#19364a" text-anchor="middle" font-weight="400">階段</text>
+<rect x="271.00" y="123.00" width="40.00" height="32.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="291.00" y="144.00" font-size="16.00" fill="#19364a" text-anchor="middle" font-weight="400">水道</text>
+<path d="M39.00,123.00 L271.00,123.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M386.00,123.00 L617.00,123.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M617.00,123.00 L617.00,1278.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M36.00,1278.00 L617.00,1278.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M39.00,155.00 L39.00,341.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<text x="505.00" y="143.00" font-size="13.00" fill="#19364a" text-anchor="middle" font-weight="400">倉庫</text>
+<text x="335.00" y="352.00" font-size="15.00" fill="#8496a2" text-anchor="middle" font-weight="400">通路</text>
+<rect x="386.00" y="155.00" width="40.00" height="65.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="410.48" y="187.50" font-size="12.80" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 410.48101841327576 187.5)">A1  KVK</text>
+<rect x="426.00" y="155.00" width="115.00" height="34.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="483.50" y="178.24" font-size="17.34" fill="#2159a0" text-anchor="middle" font-weight="700">A2   モルコ</text>
+<rect x="541.00" y="155.00" width="76.00" height="34.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="579.00" y="178.00" font-size="18.00" fill="#2159a0" text-anchor="middle" font-weight="700">A3</text>
+<rect x="40.00" y="122.00" width="231.00" height="34.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="155.50" y="145.24" font-size="17.34" fill="#2159a0" text-anchor="middle" font-weight="700">A4   掃除口・フレキ等</text>
+<rect x="117.00" y="172.00" width="154.00" height="33.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="194.00" y="194.50" font-size="18.00" fill="#2159a0" text-anchor="middle" font-weight="700">A5</text>
+<rect x="39.00" y="155.00" width="20.00" height="187.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="52.71" y="248.50" font-size="10.60" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 52.71 248.5)">A6  上段 カチット</text>
+<rect x="59.00" y="155.00" width="20.00" height="187.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="72.71" y="248.50" font-size="10.60" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 72.71 248.5)">A7  下段 KP継手</text>
+<rect x="136.00" y="205.00" width="116.00" height="96.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="194.00" y="248.00" font-size="27.00" fill="#2159a0" text-anchor="middle" font-weight="700">A8</text>
+<text x="194.00" y="270.00" font-size="9.45" fill="#2159a0" text-anchor="middle" font-weight="400">ボイラー・オイルタンク</text>
+<text x="194.00" y="283.45" font-size="9.45" fill="#2159a0" text-anchor="middle" font-weight="400">Hホース・巻フレキ</text>
+<rect x="578.00" y="189.00" width="39.00" height="152.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="603.80" y="265.00" font-size="18.00" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 603.8 265.0)">A9  ボルト等</text>
+<rect x="578.00" y="341.00" width="39.00" height="178.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="603.80" y="430.00" font-size="18.00" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 603.8 430.0)">A10  不凍栓・接U</text>
+<rect x="405.00" y="421.00" width="39.00" height="131.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="430.80" y="486.50" font-size="18.00" fill="#2159a0" text-anchor="middle" font-weight="700" transform="rotate(-90 430.8 486.5)">A11  接U部材</text>
+<rect x="116.00" y="421.00" width="289.00" height="33.00" rx="1" fill="#e7f1ff" stroke="#2159a0" stroke-width="1.6"/>
+<text x="260.50" y="443.56" font-size="16.83" fill="#2159a0" text-anchor="middle" font-weight="700">A12   ブリヂストン</text>
+<rect x="115.00" y="551.00" width="289.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="259.50" y="572.88" font-size="16.32" fill="#146e63" text-anchor="middle" font-weight="700">B1   LX継手</text>
+<rect x="404.00" y="551.00" width="135.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="471.50" y="572.09" font-size="14.15" fill="#146e63" text-anchor="middle" font-weight="700">B2   フランジ・PK</text>
+<rect x="577.00" y="519.00" width="39.00" height="90.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="600.39" y="564.00" font-size="11.11" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 600.3869382498475 564.0)">B3  SUSバンド</text>
+<rect x="115.00" y="608.00" width="232.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="231.00" y="629.88" font-size="16.32" fill="#146e63" text-anchor="middle" font-weight="700">B4   HTLP継手</text>
+<rect x="347.00" y="608.00" width="192.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="443.00" y="630.00" font-size="18.00" fill="#146e63" text-anchor="middle" font-weight="700">B5</text>
+<rect x="115.00" y="640.00" width="424.00" height="33.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="327.00" y="662.56" font-size="16.83" fill="#146e63" text-anchor="middle" font-weight="700">B6   白継手</text>
+<rect x="404.00" y="697.00" width="135.00" height="33.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="471.50" y="719.56" font-size="16.83" fill="#146e63" text-anchor="middle" font-weight="700">B6   白継手</text>
+<rect x="115.00" y="697.00" width="289.00" height="33.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="259.50" y="719.56" font-size="16.83" fill="#146e63" text-anchor="middle" font-weight="700">B7   HI継手</text>
+<rect x="115.00" y="730.00" width="289.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="259.50" y="751.88" font-size="16.32" fill="#146e63" text-anchor="middle" font-weight="700">B8   バルブ</text>
+<rect x="404.00" y="730.00" width="78.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="443.00" y="752.00" font-size="18.00" fill="#146e63" text-anchor="middle" font-weight="700">B9</text>
+<rect x="482.00" y="730.00" width="57.00" height="32.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="510.50" y="752.00" font-size="18.00" fill="#146e63" text-anchor="middle" font-weight="700">B10</text>
+<rect x="115.00" y="785.00" width="424.00" height="42.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="327.00" y="812.48" font-size="18.00" fill="#146e63" text-anchor="middle" font-weight="700">B10   バンド</text>
+<rect x="577.00" y="624.00" width="39.00" height="162.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="602.58" y="705.00" font-size="17.37" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 602.5806786471704 705.0)">B11  山清ヒーター</text>
+<rect x="577.00" y="1133.00" width="39.00" height="145.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="602.80" y="1205.50" font-size="18.00" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 602.8 1205.4999999999998)">B12  TS</text>
+<rect x="480.00" y="1206.00" width="38.00" height="72.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="504.31" y="1242.00" font-size="15.18" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 504.31280334728035 1242.0)">B12  TS</text>
+<rect x="441.00" y="1206.00" width="39.00" height="72.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="464.76" y="1242.00" font-size="12.18" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 464.7613481637741 1242.0)">B13  白LA</text>
+<rect x="363.00" y="1214.00" width="40.00" height="64.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="383.00" y="1241.00" font-size="20.48" fill="#146e63" text-anchor="middle" font-weight="700">B14</text>
+<text x="383.00" y="1263.00" font-size="11.73" fill="#146e63" text-anchor="middle" font-weight="400">PLLA</text>
+<rect x="325.00" y="1141.00" width="78.00" height="73.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="364.00" y="1172.50" font-size="23.36" fill="#146e63" text-anchor="middle" font-weight="700">B15</text>
+<text x="364.00" y="1194.50" font-size="14.00" fill="#146e63" text-anchor="middle" font-weight="400">ハイケツ</text>
+<rect x="248.00" y="1206.00" width="39.00" height="72.00" rx="1" fill="#e1f4f1" stroke="#146e63" stroke-width="1.6"/>
+<text x="271.04" y="1242.00" font-size="10.12" fill="#146e63" text-anchor="middle" font-weight="700" transform="rotate(-90 271.04370464875217 1242.0)">B16  PC継手</text>
+<rect x="115.00" y="827.00" width="424.00" height="32.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="327.00" y="848.88" font-size="16.32" fill="#935b0c" text-anchor="middle" font-weight="700">C1   因幡</text>
+<rect x="115.00" y="882.00" width="327.00" height="49.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="278.50" y="914.50" font-size="15.68" fill="#935b0c" text-anchor="middle" font-weight="700">C2</text>
+<rect x="115.00" y="955.00" width="424.00" height="57.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="327.00" y="991.50" font-size="18.24" fill="#935b0c" text-anchor="middle" font-weight="700">C3</text>
+<rect x="115.00" y="1036.00" width="327.00" height="65.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="278.50" y="1076.50" font-size="20.80" fill="#935b0c" text-anchor="middle" font-weight="700">C4</text>
+<rect x="577.00" y="802.00" width="19.00" height="154.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="590.02" y="879.00" font-size="10.07" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 590.0245 879.0)">C5  下段 空調バンド</text>
+<rect x="577.00" y="972.00" width="19.00" height="161.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="590.02" y="1052.50" font-size="10.07" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 590.0245 1052.5)">C5  下段 空調バンド</text>
+<rect x="596.00" y="802.00" width="20.00" height="154.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="609.71" y="879.00" font-size="10.60" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 609.71 879.0)">C6  上段 電線</text>
+<rect x="596.00" y="972.00" width="20.00" height="161.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="609.71" y="1052.50" font-size="10.60" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 609.71 1052.5)">C6  上段 AD継手</text>
+<rect x="442.00" y="882.00" width="97.00" height="49.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="490.50" y="901.50" font-size="15.68" fill="#935b0c" text-anchor="middle" font-weight="700">C7</text>
+<text x="490.50" y="923.50" font-size="14.00" fill="#935b0c" text-anchor="middle" font-weight="400">鋼管継手</text>
+<rect x="442.00" y="1036.00" width="97.00" height="65.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="490.50" y="1063.50" font-size="20.80" fill="#935b0c" text-anchor="middle" font-weight="700">C8</text>
+<text x="490.50" y="1085.50" font-size="13.39" fill="#935b0c" text-anchor="middle" font-weight="400">ACドレン継手</text>
+<rect x="480.00" y="1133.00" width="38.00" height="73.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="504.47" y="1169.50" font-size="15.64" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 504.47308205066054 1169.4999999999998)">C9  空調</text>
+<rect x="209.00" y="1133.00" width="78.00" height="73.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="248.00" y="1164.50" font-size="23.36" fill="#935b0c" text-anchor="middle" font-weight="700">C10</text>
+<text x="248.00" y="1186.50" font-size="14.00" fill="#935b0c" text-anchor="middle" font-weight="400">空調</text>
+<rect x="113.00" y="1133.00" width="39.00" height="145.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="138.80" y="1205.50" font-size="18.00" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 138.8 1205.4999999999998)">C11  空調</text>
+<rect x="36.00" y="1133.00" width="39.00" height="145.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="61.80" y="1205.50" font-size="18.00" fill="#935b0c" text-anchor="middle" font-weight="700" transform="rotate(-90 61.8 1205.4999999999998)">C12  空調</text>
+<text x="30.00" y="1322.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">A3：モルコバンド</text>
+<text x="30.00" y="1337.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">A5：水栓P・ボールタップ・メーター等</text>
+<text x="30.00" y="1352.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">B5：アキレス・WHTLP・Uフレキ</text>
+<text x="30.00" y="1367.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">B9：ノンアスPK</text>
+<text x="30.00" y="1382.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">B10：バンド</text>
+<text x="330.00" y="1400.00" font-size="13.00" fill="#536875" text-anchor="middle" font-weight="400">棚の上下段・同一棚番の複数箇所は原図に準拠。C9の位置を確認。</text>
+<text x="330.00" y="1420.00" font-size="11.00" fill="#72828e" text-anchor="middle" font-weight="400">事務所レイアウト棚番 / 清書版 2026.09.30  ・  配置関係を示す模式図（縮尺なし）</text>
+</svg>

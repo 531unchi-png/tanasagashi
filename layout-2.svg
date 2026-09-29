@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1437" role="img" aria-label="倉庫2階 棚番レイアウト"><style>text{font-family:Meiryo,"Noto Sans JP",sans-serif}</style>
+<rect width="640" height="1437" fill="white"/>
+<rect x="18.00" y="12.00" width="604.00" height="58.00" rx="7" fill="#10364e" stroke="#10364e" stroke-width="0"/>
+<text x="34.00" y="48.00" font-size="26.00" fill="#ffffff" text-anchor="start" font-weight="700">倉庫2階</text>
+<text x="570.00" y="35.00" font-size="12.00" fill="#bcd4e2" text-anchor="middle" font-weight="400">02 / 06</text>
+<rect x="48.00" y="115.00" width="540.00" height="301.00" rx="0" fill="#f0f3f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="318.00" y="270.50" font-size="19.00" fill="#19364a" text-anchor="middle" font-weight="400">特販</text>
+<rect x="138.00" y="295.00" width="90.00" height="90.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="183.00" y="345.00" font-size="19.00" fill="#19364a" text-anchor="middle" font-weight="400">リフト</text>
+<rect x="158.00" y="448.00" width="269.00" height="98.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="292.50" y="502.00" font-size="19.00" fill="#19364a" text-anchor="middle" font-weight="400">階段</text>
+<path d="M50.00,415.00 L50.00,1087.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M589.00,115.00 L589.00,1272.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M50.00,1272.00 L591.00,1272.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<rect x="124.00" y="980.00" width="325.00" height="147.00" rx="1" fill="#fff1d9" stroke="#935b0c" stroke-width="1.6"/>
+<text x="286.50" y="1048.50" font-size="27.00" fill="#935b0c" text-anchor="middle" font-weight="700">C25</text>
+<text x="286.50" y="1070.50" font-size="14.00" fill="#935b0c" text-anchor="middle" font-weight="400">空調銅管・エアコン・水栓</text>
+<rect x="49.00" y="433.00" width="37.00" height="219.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="73.80" y="542.50" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 73.8 542.5)">D1  PL継手</text>
+<rect x="121.00" y="448.00" width="37.00" height="98.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="145.80" y="497.00" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 145.8 496.99999999999994)">D2</text>
+<rect x="158.00" y="546.00" width="125.00" height="32.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="220.50" y="567.45" font-size="15.14" fill="#5d459c" text-anchor="middle" font-weight="700">D3   SUSネジ込</text>
+<rect x="283.00" y="546.00" width="144.00" height="32.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="355.00" y="567.88" font-size="16.32" fill="#5d459c" text-anchor="middle" font-weight="700">D4   HT継手</text>
+<rect x="553.00" y="616.00" width="38.00" height="162.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="576.05" y="697.00" font-size="11.58" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 576.0515246169864 697.0)">D5  テープ・接着剤・ゴム板</text>
+<rect x="554.00" y="793.00" width="37.00" height="155.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="578.74" y="870.50" font-size="17.83" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 578.7416526543358 870.5)">D6  山清ヒーター</text>
+<rect x="555.00" y="964.00" width="37.00" height="145.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="579.80" y="1036.50" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 579.7999999999998 1036.5)">D7  アロン</text>
+<rect x="179.00" y="1173.00" width="413.00" height="99.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="385.50" y="1217.50" font-size="27.00" fill="#5d459c" text-anchor="middle" font-weight="700">D8</text>
+<text x="385.50" y="1239.50" font-size="14.00" fill="#5d459c" text-anchor="middle" font-weight="400">保温材</text>
+<rect x="52.00" y="1128.00" width="37.00" height="145.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="76.80" y="1200.50" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 76.8 1200.4999999999998)">D9  スチロ</text>
+<rect x="124.00" y="1173.00" width="55.00" height="99.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="157.57" y="1222.50" font-size="17.35" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 157.57110772744574 1222.5)">D9  スチロ</text>
+<rect x="51.00" y="1087.00" width="38.00" height="25.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="70.00" y="1105.50" font-size="16.25" fill="#5d459c" text-anchor="middle" font-weight="700">D9</text>
+<rect x="159.00" y="868.00" width="162.00" height="33.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="240.00" y="890.49" font-size="16.63" fill="#5d459c" text-anchor="middle" font-weight="700">D10   アルミフレキ</text>
+<rect x="159.00" y="827.00" width="162.00" height="41.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="240.00" y="853.50" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700">D12</text>
+<rect x="321.00" y="827.00" width="108.00" height="74.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="375.00" y="859.00" font-size="23.68" fill="#5d459c" text-anchor="middle" font-weight="700">D13</text>
+<text x="375.00" y="881.00" font-size="14.00" fill="#5d459c" text-anchor="middle" font-weight="400">大口径</text>
+<rect x="122.00" y="723.00" width="306.00" height="73.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="275.00" y="754.50" font-size="23.36" fill="#5d459c" text-anchor="middle" font-weight="700">D14</text>
+<text x="275.00" y="776.50" font-size="14.00" fill="#5d459c" text-anchor="middle" font-weight="400">100-150 / 125-150 / LT / LL</text>
+<rect x="121.00" y="618.00" width="306.00" height="74.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="274.00" y="650.00" font-size="23.68" fill="#5d459c" text-anchor="middle" font-weight="700">D15</text>
+<text x="274.00" y="672.00" font-size="14.00" fill="#5d459c" text-anchor="middle" font-weight="400">DL / 45L / Y / DT / DS</text>
+<rect x="535.00" y="430.00" width="55.00" height="170.00" rx="1" fill="#eee9ff" stroke="#5d459c" stroke-width="1.6"/>
+<text x="568.80" y="515.00" font-size="18.00" fill="#5d459c" text-anchor="middle" font-weight="700" transform="rotate(-90 568.7999999999998 515.0)">D16  TOTO</text>
+<text x="30.00" y="1322.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">D9：ラッキング</text>
+<text x="30.00" y="1337.00" font-size="10.00" fill="#536875" text-anchor="start" font-weight="400">D12：100-200 / 150-200 / 150-150</text>
+<text x="320.00" y="1400.00" font-size="13.00" fill="#536875" text-anchor="middle" font-weight="400">C25は倉庫2階に配置。</text>
+<text x="320.00" y="1420.00" font-size="11.00" fill="#72828e" text-anchor="middle" font-weight="400">事務所レイアウト棚番 / 清書版 2026.09.30  ・  配置関係を示す模式図（縮尺なし）</text>
+</svg>

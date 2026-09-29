@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1327 1060" role="img" aria-label="事務所内 棚番レイアウト"><style>text{font-family:Meiryo,"Noto Sans JP",sans-serif}</style>
+<rect width="1327" height="1060" fill="white"/>
+<rect x="18.00" y="12.00" width="1291.00" height="58.00" rx="7" fill="#10364e" stroke="#10364e" stroke-width="0"/>
+<text x="34.00" y="48.00" font-size="26.00" fill="#ffffff" text-anchor="start" font-weight="700">事務所内</text>
+<text x="663.50" y="49.00" font-size="14.00" fill="#ffffff" text-anchor="middle" font-weight="400">I1 - I4 / J1 - J4</text>
+<text x="1257.00" y="35.00" font-size="12.00" fill="#bcd4e2" text-anchor="middle" font-weight="400">05 / 06</text>
+<rect x="874.00" y="397.00" width="116.00" height="227.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="584.00" y="397.00" width="116.00" height="227.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="315.00" y="419.00" width="116.00" height="205.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="488.00" y="397.00" width="39.00" height="227.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="874.00" y="687.00" width="116.00" height="61.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="584.00" y="688.00" width="116.00" height="61.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="315.00" y="688.00" width="116.00" height="61.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="1135.00" y="378.00" width="97.00" height="60.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="1135.00" y="498.00" width="97.00" height="13.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="1135.00" y="562.00" width="97.00" height="62.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="1135.00" y="675.00" width="97.00" height="13.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="1117.00" y="708.00" width="116.00" height="48.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="141.00" y="338.00" width="58.00" height="226.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<text x="170.00" y="456.00" font-size="15.47" fill="#19364a" text-anchor="middle" font-weight="400">給湯室</text>
+<rect x="219.00" y="785.00" width="791.00" height="42.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="160.00" y="709.00" width="40.00" height="42.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<rect x="160.00" y="750.00" width="40.00" height="38.00" rx="0" fill="#f1f4f6" stroke="#91a0ab" stroke-width="1.3"/>
+<path d="M990.00,479.00 L874.00,479.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M932.00,397.00 L932.00,563.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M990.00,563.00 L874.00,563.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M700.00,479.00 L584.00,479.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M642.00,397.00 L642.00,563.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M700.00,563.00 L584.00,563.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M372.00,419.00 L372.00,624.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M431.00,524.00 L315.00,524.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M1284.00,285.00 L1284.00,826.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M1284.00,826.00 L142.00,826.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M1154.00,145.00 L1154.00,285.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<path d="M1154.00,145.00 L333.00,145.00" stroke="#536875" stroke-width="1.3" fill="none"/>
+<rect x="449.00" y="145.00" width="424.00" height="60.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="661.00" y="183.00" font-size="19.20" fill="#65518b" text-anchor="middle" font-weight="700">I1</text>
+<rect x="197.00" y="145.00" width="136.00" height="60.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="265.00" y="183.00" font-size="19.20" fill="#65518b" text-anchor="middle" font-weight="700">I1</text>
+<rect x="63.00" y="145.00" width="134.00" height="60.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="130.00" y="183.00" font-size="19.20" fill="#65518b" text-anchor="middle" font-weight="700">I2</text>
+<rect x="121.00" y="286.00" width="77.00" height="53.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="159.50" y="320.50" font-size="16.96" fill="#65518b" text-anchor="middle" font-weight="700">I2</text>
+<rect x="313.00" y="285.00" width="695.00" height="53.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="660.50" y="319.50" font-size="16.96" fill="#65518b" text-anchor="middle" font-weight="700">I3</text>
+<rect x="1010.00" y="785.00" width="88.00" height="42.00" rx="1" fill="#ede9f7" stroke="#65518b" stroke-width="1.6"/>
+<text x="1054.00" y="812.48" font-size="18.00" fill="#65518b" text-anchor="middle" font-weight="700">I4</text>
+<text x="663.50" y="1023.00" font-size="13.00" fill="#536875" text-anchor="middle" font-weight="400">三金仕入れ商品：J1 - J4（原図に個別棚位置の記載なし）</text>
+<text x="663.50" y="1043.00" font-size="11.00" fill="#72828e" text-anchor="middle" font-weight="400">事務所レイアウト棚番 / 清書版 2026.09.30  ・  配置関係を示す模式図（縮尺なし）</text>
+</svg>
