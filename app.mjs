@@ -1,4 +1,4 @@
-import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=45';
+import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=46';
 import {createSearch} from './search.mjs';
 import {listPriceFor,formatListPrice} from './prices.mjs?v=23';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -75,17 +75,18 @@ function catalogImage(p){
 function sekisuiCatalogImage(p){
  const maker=manufacturerOf(p),n=String(p.name||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),code=String(p.code||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),spec=String(p.spec||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase();
  const all=n+' '+code+' '+spec;
+ const core=code.replace(/^SSS/,'');
  if(maker!=='積水'&&!n.startsWith('積水')&&!n.startsWith('セキスイ')&&!n.startsWith('エスロン'))return '';
  // Verified exact families from official Eslon Times product pages.
  // TS: exact shape families.
  if((n.includes('TS45')||/(^|[^A-Z])TS4L[0-9A-Z]+([^A-Z]|$)/.test(all)))return 'https://www.eslontimes.com/search/images/product_group/39/';
- if((n.includes('TSチーズ')||/(^|[^A-Z])TST[0-9A-Z]+([^A-Z]|$)/.test(all)))return 'https://www.eslontimes.com/search/images/product_group/41/';
+ if((n.includes('TSチーズ')||/^TST[0-9A-Z]+$/.test(core)))return 'https://www.eslontimes.com/search/images/product_group/41/';
  if((n.includes('TSエルボ')||/(^|[^A-Z])TSL[0-9A-Z]+([^A-Z]|$)/.test(all)))return 'https://www.eslontimes.com/search/images/product_group/35/';
  if((n.includes('TSソケット')||/(^|[^A-Z])TSS[0-9A-Z]+([^A-Z]|$)/.test(all)))return 'https://www.eslontimes.com/search/images/product_group/31/';
  // HT: exact A-shape families.
  if((n.includes('HTチーズ')||/(^|[^A-Z])THT[0-9A-Z]+([^A-Z]|$)/.test(all))&&!n.includes('組合せ'))return 'https://www.eslontimes.com/search/images/product_group/2356/';
  if((n.includes('HT90')||n.includes('HTエルボ')||/(^|[^A-Z])THL[0-9A-Z]+([^A-Z]|$)/.test(all)))return 'https://www.eslontimes.com/search/images/product_group/2788/';
- if((n.includes('HTソケット')||/(^|[^A-Z])THS[0-9A-Z]+([^A-Z]|$)/.test(all))&&!n.includes('径違い'))return 'https://www.eslontimes.com/search/images/product_group/2357/';
+ if((n.includes('HTソケット')||/^HTS[0-9A-Z]+$/.test(core)||/^THS[0-9A-Z]+$/.test(core))&&!n.includes('径違い'))return 'https://www.eslontimes.com/search/images/product_group/2357/';
  // Eslon Kachit S: exact fitting families.
  if(n.includes('カチットS')||n.includes('エスロカチットS')||/^SSS/.test(code)){
   // User-verified Kachit S families: use the exact official images matching the supplied references.
@@ -109,14 +110,18 @@ function sekisuiCatalogImage(p){
  if((n.includes('DV90')||n.includes('DVエルボ')||/(^|[^A-Z])DDL(30|40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('カラー')&&!all.includes('シルバー'))return 'https://www.eslontimes.com/search/images/product_group/117/';
  if((n.includes('DV45Y')||/(^|[^A-Z])DY(30|40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('カラー'))return 'https://www.eslontimes.com/search/images/product_group/132/';
  if((n.includes('DV大曲')||/(^|[^A-Z])DLT[0-9A-Z]+([^A-Z]|$)/.test(all))&&!all.includes('カラー'))return 'https://www.eslontimes.com/search/images/product_group/139/';
+ // DV-VU 90° elbow <VUDL>: verified official family. Exact image asset still needs verification, so no guessed image is shown.
+ if(/^DV-VUDL[0-9A-Z]+$/.test(core)||/^VUDL[0-9A-Z]+$/.test(core))return '';
+ // DV-VU 90° long sweep Y <VULT>: verified family; do not guess the image asset.
+ if(/^DV-VULT[0-9A-Z]+$/.test(core)||/^VULT[0-9A-Z]+$/.test(core))return '';
  // DV-VU socket <VUDS>: UDS50/75/100/125/150 etc.
  if((n.includes('VUソケット')||n.includes('VUDS')||code.includes('DV-VUDS')||/(^|[^A-Z])UDS(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明')&&!all.includes('大口径'))return 'https://www.eslontimes.com/search/images/product_group/196/';
  // DV-VU 45° elbow <VU45L>: U4L50/75/100/125/150 etc.
  if((n.includes('VU45')||n.includes('VU45L')||code.includes('DV-VU45')||/(^|[^A-Z])U4L(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明')&&!all.includes('大口径'))return 'https://www.eslontimes.com/search/images/product_group/202/';
  // DV-VU 45°Y <VUY>.
  if((n.includes('VUY')||n.includes('VU Y')||code.includes('DV-VUY')||/^UY[0-9A-Z]+$/.test(code.replace(/^SSS/,'').replace(/^DV-VU/,'')))&&!n.includes('大曲')&&!n.includes('LT'))return 'https://www.eslontimes.com/search/images/product_group/209/';
- // DV-VU 90° elbow <VULL>.
- if((n.includes('VU90')||n.includes('VULL')||code.includes('DV-VULL')||/(^|[^A-Z])ULL(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明')&&!all.includes('大曲'))return 'https://www.eslontimes.com/search/images/product_group/201/';
+ // VULL was previously mapped to a wrong product image. Do not guess; leave blank until the exact official asset is verified.
+ if(/^DV-VULL[0-9A-Z]+$/.test(core)||/^VULL[0-9A-Z]+$/.test(core)||n.includes('VULL'))return '';
  // DV-VU 90° tee <VUDT>.
  if((n.includes('VUチーズ')||n.includes('VUDT')||code.includes('DV-VUDT')||/(^|[^A-Z])UDT(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明'))return 'https://www.eslontimes.com/search/images/product_group/205/';
  // DV-VU reducer / increaser <VUIN>.
@@ -159,7 +164,7 @@ try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)t
   const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
   makers=makers.filter(m=>m.count>0);
  }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=45',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=46',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
