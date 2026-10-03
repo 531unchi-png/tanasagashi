@@ -1,7 +1,7 @@
 import {normalize} from './search.mjs';
 // Labels follow the inventory's names; do not infer a legal manufacturer from generic product names.
 const definitions=[
- ['KITZ','キッツ'],['KVK','ケーブイケー'],['SANEI','サンエイ','三栄'],['TOTO','トートー'],
+ ['KITZ','キッツ'],['KVK','ケーブイケー'],['SANEI','サンエイ','三栄'],['TOTO','トートー'],['BS','ブリヂストン','ブリジストン','BRIDGESTONE'],
  ['積水','セキスイ'],['因幡','イナバ'],['前澤','前沢','マエザワ'],['アロン'],['アカギ'],
  ['ベンカン'],['ベン'],['日邦','ニッポウ'],['山清','ヤマセイ'],['ヤマイチ'],['川西'],['弥栄'],
  ['リケン'],['イノアック'],['キーロン'],['ミヤナガ'],['コスモ'],['オーミヤ'],['カクダイ'],
