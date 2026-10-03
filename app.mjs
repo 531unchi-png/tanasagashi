@@ -1,4 +1,4 @@
-import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=46';
+import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=47';
 import {createSearch} from './search.mjs';
 import {listPriceFor,formatListPrice} from './prices.mjs?v=23';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -111,7 +111,7 @@ function sekisuiCatalogImage(p){
  if((n.includes('DV45Y')||/(^|[^A-Z])DY(30|40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('カラー'))return 'https://www.eslontimes.com/search/images/product_group/132/';
  if((n.includes('DV大曲')||/(^|[^A-Z])DLT[0-9A-Z]+([^A-Z]|$)/.test(all))&&!all.includes('カラー'))return 'https://www.eslontimes.com/search/images/product_group/139/';
  // DV-VU 90° elbow <VUDL>: verified official family. Exact image asset still needs verification, so no guessed image is shown.
- if(/^DV-VUDL[0-9A-Z]+$/.test(core)||/^VUDL[0-9A-Z]+$/.test(core))return '';
+ if(/^DV-VUDL[0-9A-Z]+$/.test(core)||/^VUDL[0-9A-Z]+$/.test(core))return 'https://www.eslontimes.com/search/images/product_group/203/';
  // DV-VU 90° long sweep Y <VULT>: verified family; do not guess the image asset.
  if(/^DV-VULT[0-9A-Z]+$/.test(core)||/^VULT[0-9A-Z]+$/.test(core))return '';
  // DV-VU socket <VUDS>: UDS50/75/100/125/150 etc.
@@ -121,7 +121,7 @@ function sekisuiCatalogImage(p){
  // DV-VU 45°Y <VUY>.
  if((n.includes('VUY')||n.includes('VU Y')||code.includes('DV-VUY')||/^UY[0-9A-Z]+$/.test(code.replace(/^SSS/,'').replace(/^DV-VU/,'')))&&!n.includes('大曲')&&!n.includes('LT'))return 'https://www.eslontimes.com/search/images/product_group/209/';
  // VULL was previously mapped to a wrong product image. Do not guess; leave blank until the exact official asset is verified.
- if(/^DV-VULL[0-9A-Z]+$/.test(core)||/^VULL[0-9A-Z]+$/.test(core)||n.includes('VULL'))return '';
+ if(/^DV-VULL[0-9A-Z]+$/.test(core)||/^VULL[0-9A-Z]+$/.test(core)||n.includes('VULL'))return 'https://www.eslontimes.com/search/images/product_group/204/';
  // DV-VU 90° tee <VUDT>.
  if((n.includes('VUチーズ')||n.includes('VUDT')||code.includes('DV-VUDT')||/(^|[^A-Z])UDT(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明'))return 'https://www.eslontimes.com/search/images/product_group/205/';
  // DV-VU reducer / increaser <VUIN>.
@@ -164,7 +164,7 @@ try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)t
   const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
   makers=makers.filter(m=>m.count>0);
  }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=46',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=47',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
