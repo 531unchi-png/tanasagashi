@@ -70,7 +70,23 @@ function catalogImage(p){
  const hit=rules.find(([test])=>test(n));
  return hit?AKAGI_IMAGE_BASE+hit[1]:'';
 }
-function productImage(p){return savedImage(p.code)||p.image||p.imageUrl||catalogImage(p)||'';}
+const SEKISUI_IMAGE_BASE='https://www.sekisui.co.jp/search/';
+function sekisuiCatalogImage(p){
+ const maker=manufacturerOf(p),n=String(p.name||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase();
+ if(maker!=='積水'&&!n.startsWith('積水')&&!n.startsWith('セキスイ')&&!n.startsWith('エスロン'))return '';
+ const pages=[
+  [x=>x.includes('HTDV'), 'detail-2512.html'],
+  [x=>x.includes('DV-VU')||x.includes('DVVU')||x.includes('VU継手')||x.includes('VU45')||x.includes('VUDL')||x.includes('VULL')||x.includes('VUDT')||x.includes('VUYT')||x.includes('VUIN'), 'detail-2216.html'],
+  [x=>x.includes('HT継手')||x.includes('HTソケット')||x.includes('HTエルボ')||x.includes('HTチーズ')||x.includes('HT45')||x.includes('HTVS'), 'detail-2179.html'],
+  [x=>x.includes('TS継手')||x.includes('TSソケット')||x.includes('TSエルボ')||x.includes('TSチーズ')||x.includes('TS45')||x.includes('TSVS')||x.includes('給水栓用'), 'detail-2163.html'],
+  [x=>x.includes('エスロカチット')||x.includes('カチット'), 'detail-2357.html'],
+  [x=>x.includes('メタキュット'), 'detail-2558.html'],
+  [x=>x.includes('ユニオン継手'), 'detail-2462.html']
+ ];
+ const hit=pages.find(([test])=>test(n));
+ return hit?SEKISUI_IMAGE_BASE+hit[1]:'';
+}
+function productImage(p){return savedImage(p.code)||p.image||p.imageUrl||catalogImage(p)||sekisuiCatalogImage(p)||'';}
 function normalizeScan(s){return String(s||'').toUpperCase().normalize('NFKC').replace(/[‐‑‒–—―ー]/g,'-').replace(/[^A-Z0-9一-龠ぁ-んァ-ヶー]/g,'')}
 function scanTokens(text){const raw=String(text||'').toUpperCase().normalize('NFKC'),parts=raw.split(/\s+|[,:;|()[\]{}<>「」『』【】]/).map(x=>x.trim()).filter(Boolean),tokens=new Set();for(const p of parts){const n=normalizeScan(p);if(n.length>=2)tokens.add(n);for(const m of p.matchAll(/[A-Z0-9][A-Z0-9._\/-]{2,}/g)){const x=normalizeScan(m[0]);if(x.length>=3)tokens.add(x)}}return [...tokens].sort((x,y)=>y.length-x.length).slice(0,60)}
 function scanScore(p,tokens){const code=normalizeScan(p.code),name=normalizeScan(p.name),spec=normalizeScan(p.spec);let score=0,hits=[];for(const t of tokens){if(t.length<2)continue;let w=0;if(code&&(code.includes(t)||t.includes(code)))w=Math.max(w,t.length>=5?16:10);if(spec&&(spec.includes(t)||t.includes(spec)))w=Math.max(w,t.length>=4?10:6);if(name.includes(t))w=Math.max(w,t.length>=4?7:4);if(w){score+=w;hits.push(t)}}return {p,score,hits:[...new Set(hits)].slice(0,4)}}
@@ -99,7 +115,7 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=26',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=27',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
