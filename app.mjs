@@ -74,7 +74,12 @@ function sekisuiCatalogImage(p){
  const maker=manufacturerOf(p),n=String(p.name||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),code=String(p.code||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),spec=String(p.spec||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase();
  const all=n+' '+code+' '+spec;
  if(maker!=='積水'&&!n.startsWith('積水')&&!n.startsWith('セキスイ')&&!n.startsWith('エスロン'))return '';
- // Verified exact family: Sekisui DV-VU 45°Y <VUY>. Official Eslon Times image.
+ // Verified exact families from official Eslon Times product pages.
+ // DV-VU socket <VUDS>: UDS50/75/100/125/150 etc.
+ if((n.includes('VUソケット')||n.includes('VUDS')||code.includes('DV-VUDS')||/(^|[^A-Z])UDS(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明')&&!all.includes('大口径'))return 'https://www.eslontimes.com/search/images/product_group/196/';
+ // DV-VU 45° elbow <VU45L>: U4L50/75/100/125/150 etc.
+ if((n.includes('VU45')||n.includes('VU45L')||code.includes('DV-VU45')||/(^|[^A-Z])U4L(40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('透明')&&!all.includes('大口径'))return 'https://www.eslontimes.com/search/images/product_group/202/';
+ // DV-VU 45°Y <VUY>.
  if((n.includes('VUY')||n.includes('VU Y')||code.includes('DV-VUY')||/^UY[0-9A-Z]+$/.test(code.replace(/^SSS/,'').replace(/^DV-VU/,'')))&&!n.includes('大曲')&&!n.includes('LT'))return 'https://www.eslontimes.com/search/images/product_group/209/';
  return '';
 }
@@ -107,7 +112,7 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=31',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=32',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
