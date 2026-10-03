@@ -14,11 +14,12 @@ const definitions=[
 ];
 const rules=definitions.flatMap(([name,...aliases])=>[name,...aliases].map(prefix=>({name,prefix:normalize(prefix)}))).sort((a,b)=>b.prefix.length-a.prefix.length);
 export function manufacturerOf(p){
- const registered=String(p.manufacturer||'').trim();
- if(registered)return rules.find(r=>r.prefix===normalize(registered))?.name||registered;
  const name=normalize(p.name).replace(/^[*＊※]+/,'');
  // Inventory label 「BS 持出しソケット」 uses BS as a product notation, not a manufacturer name.
+ // Check this before the registered manufacturer field so these records always stay unclassified.
  if(/^BS持出しソケット/.test(name))return '未分類';
+ const registered=String(p.manufacturer||'').trim();
+ if(registered)return rules.find(r=>r.prefix===normalize(registered))?.name||registered;
  return rules.find(r=>name.startsWith(r.prefix))?.name||'未分類';
 }
 export function manufacturerIndex(products){
