@@ -86,11 +86,14 @@ function sekisuiCatalogImage(p){
  if((n.includes('HTソケット')||/(^|[^A-Z])THS[0-9A-Z]+([^A-Z]|$)/.test(all))&&!n.includes('径違い'))return 'https://www.eslontimes.com/search/images/product_group/2357/';
  // Eslon Kachit S: exact fitting families.
  if(n.includes('カチットS')||n.includes('エスロカチットS')||/^SSS/.test(code)){
+  // Specialized Kachit S sockets must be checked before generic SMS socket.
+  if(/(^|[^A-Z])SMYS13[SLM]?([^A-Z]|$)/.test(all)||n.includes('床出しソケット'))return 'https://www.eslontimes.com/search/images/product_group/1240/';
+  if(/(^|[^A-Z])SMZS13([^A-Z]|$)/.test(all)||n.includes('座付ソケット')||n.includes('座付きソケット'))return 'https://www.eslontimes.com/search/images/product_group/1242/';
   if(/(^|[^A-Z])SMOA[0-9A-Z]+([^A-Z]|$)/.test(all)||n.includes('オスAP')||n.includes('オスねじアダプター'))return 'https://www.eslontimes.com/search/images/product_group/1221/';
   if(/(^|[^A-Z])SMMA[0-9A-Z]+([^A-Z]|$)/.test(all)||n.includes('メスAP')||n.includes('メスねじアダプター'))return 'https://www.eslontimes.com/search/images/product_group/1222/';
-  if(/(^|[^A-Z])SMS[0-9A-Z]+([^A-Z]|$)/.test(all)||n.includes('ソケット'))return 'https://www.eslontimes.com/search/images/product_group/1229/';
-  if(/(^|[^A-Z])SML[0-9A-Z]+([^A-Z]|$)/.test(all)||n.includes('エルボ'))return 'https://www.eslontimes.com/search/images/product_group/1230/';
-  if(/(^|[^A-Z])SMT[0-9A-Z]+([^A-Z]|$)/.test(all)||n.includes('チーズ'))return 'https://www.eslontimes.com/search/images/product_group/1228/';
+  if(/(^|[^A-Z])SMS[0-9A-Z]+([^A-Z]|$)/.test(all))return 'https://www.eslontimes.com/search/images/product_group/1229/';
+  if(/(^|[^A-Z])SML[0-9A-Z]+([^A-Z]|$)/.test(all))return 'https://www.eslontimes.com/search/images/product_group/1230/';
+  if(/(^|[^A-Z])SMT[0-9A-Z]+([^A-Z]|$)/.test(all))return 'https://www.eslontimes.com/search/images/product_group/1228/';
  }
  // Verified DV families from official Eslon Times product pages.
  if((n.includes('DVソケット')||/(^|[^A-Z])DDS(30|40|50|65|75|1H|1Q|1F)([^A-Z]|$)/.test(all))&&!all.includes('カラー')&&!all.includes('シルバー'))return 'https://www.eslontimes.com/search/images/product_group/106/';
@@ -140,7 +143,7 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=35',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=36',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
