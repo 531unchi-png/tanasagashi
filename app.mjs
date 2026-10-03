@@ -1,4 +1,4 @@
-import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=44';
+import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=45';
 import {createSearch} from './search.mjs';
 import {listPriceFor,formatListPrice} from './prices.mjs?v=23';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -9,7 +9,9 @@ const areas='ABCDEFGHIJ'.split('');
 function setTab(t){tab=t;for(const x of ['map','manufacturers','photos','results','quality','orders'])$(x+'-view').hidden=x!==t;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));}
 function location(id){return data.locations.find(x=>x.id===id);}
 function place(id){const l=location(id);return l?.boxes.length?[...new Set(l.boxes.map(b=>pageNames[b.page-1].split(' ')[0]))].join(' / '):id[0]==='J'?'事務所・個別位置未確定':'図面位置未確定';}
-function filtered(){return matches.filter(x=>(!area||x.product.locationId[0]===area)&&(!shelf||x.product.locationId===shelf)&&(!manufacturer||manufacturerOf(x.product)===manufacturer));}
+function isBsCarryoutSocket(p){return /^BCMS[-0-9X]+$/i.test(String(p.code||'').normalize('NFKC').replace(/[\s　]/g,''))||/^BS.*持出しソケット/.test(String(p.name||'').normalize('NFKC').replace(/[\s　]/g,''));}
+function effectiveManufacturer(p){return isBsCarryoutSocket(p)?'未分類':manufacturerOf(p);}
+function filtered(){return matches.filter(x=>(!area||x.product.locationId[0]===area)&&(!shelf||x.product.locationId===shelf)&&(!manufacturer||effectiveManufacturer(x.product)===manufacturer));}
 function productCard({product:p,fuzzy}){const price=listPriceFor(p);return `<article class="product"><div class="product-top"><button class="code code-button" data-detail="${esc(p.code)}" aria-label="${esc(p.code)}の商品詳細を開く">${esc(p.code)}</button><span class="location">${esc(p.locationId)}</span></div><h3><button class="product-name-button" data-detail="${esc(p.code)}">${esc(p.name)}</button></h3><div class="meta">規格：${esc(p.spec.trim()||'未登録')}${p.order?'　／　棚順：'+esc(p.order):''}</div>${price?`<div class="list-price"><span>税別定価</span><strong>${formatListPrice(price)}</strong><small>価格表確認</small></div>`:''}${fuzzy?'<span class="fuzzy">入力に近い候補</span>':''}<div class="product-bottom"><small>${esc(place(p.locationId))}<br>元データ ${p.sourceRow}行</small><button data-locate="${esc(p.locationId)}">${location(p.locationId)?.boxes.length?'場所を見る':'棚の商品を見る'}</button></div></article>`;}
 function findProduct(code){return data.products.find(p=>String(p.code)===String(code));}
 function searchText(p){return [p.code,p.name,p.spec].filter(Boolean).join(' ').trim();}
@@ -150,7 +152,14 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=44',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);
+ const bsCarryoutCount=data.products.filter(isBsCarryoutSocket).length;
+ if(bsCarryoutCount){
+  const bs=makers.find(m=>m.name==='BS'); if(bs)bs.count=Math.max(0,bs.count-bsCarryoutCount);
+  const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
+  makers=makers.filter(m=>m.count>0);
+ }
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=45',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
