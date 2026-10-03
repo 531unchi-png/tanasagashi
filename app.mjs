@@ -71,18 +71,8 @@ function catalogImage(p){
  return hit?AKAGI_IMAGE_BASE+hit[1]:'';
 }
 function sekisuiCatalogImage(p){
- const maker=manufacturerOf(p),n=String(p.name||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),code=String(p.code||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase(),spec=String(p.spec||'').normalize('NFKC').replace(/[\s　]/g,'').toUpperCase();
- const all=n+' '+code+' '+spec;
- if(maker!=='積水'&&!n.startsWith('積水')&&!n.startsWith('セキスイ')&&!n.startsWith('エスロン'))return '';
- // Direct image assets verified on Sekisui / Eslon Times. Never use HTML pages as <img> sources.
- if(all.includes('カチットS')||all.includes('エスロカチット')||/\bS(MOA|MO|PL|PE|PF|FC|F|T|L|S|C)[A-Z0-9-]*/.test(all))return 'https://www.eslontimes.com/search/images/product_group/1221/';
- if(all.includes('HTDV'))return 'https://www.sekisui.co.jp/search/image/2512.jpg';
- if(all.includes('HI-TS')||all.includes('HITS')||all.includes('HI継手'))return 'https://www.sekisui.co.jp/search/image/2914.jpg';
- if(all.includes('DV-VU')||all.includes('DVVU')||all.includes('VU継手')||/\bVU(DS|IN|45L|DL|LL|DT|LT|Y)/.test(all))return 'https://www.sekisui.co.jp/search/image/2216.jpg';
- if(all.includes('DV継手')||/\b(DL|DS|DT|LT|45L|IN)[0-9]/.test(all))return 'https://www.sekisui.co.jp/search/image/2913.jpg';
- if(all.includes('HT継手')||all.includes('HTソケット')||all.includes('HTエルボ')||all.includes('HTチーズ')||all.includes('HT45'))return 'https://www.sekisui.co.jp/search/image/2179.jpg';
- if(all.includes('TS継手')||all.includes('TSソケット')||all.includes('TSエルボ')||all.includes('TSチーズ')||all.includes('TS45')||all.includes('給水栓用'))return 'https://www.sekisui.co.jp/search/image/2163.jpg';
- if(all.includes('ユニオン継手'))return 'https://www.sekisui.co.jp/search/image/2462.jpg';
+ // Disabled until each Sekisui family has a verified direct product image.
+ // This prevents a generic/incorrect family image from being shown as the product.
  return '';
 }
 function productImage(p){return savedImage(p.code)||p.image||p.imageUrl||catalogImage(p)||sekisuiCatalogImage(p)||'';}
@@ -114,7 +104,7 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=29',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=30',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
