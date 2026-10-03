@@ -17,6 +17,8 @@ export function manufacturerOf(p){
  const registered=String(p.manufacturer||'').trim();
  if(registered)return rules.find(r=>r.prefix===normalize(registered))?.name||registered;
  const name=normalize(p.name).replace(/^[*＊※]+/,'');
+ // Inventory label 「BS 持出しソケット」 uses BS as a product notation, not a manufacturer name.
+ if(/^BS持出しソケット/.test(name))return '未分類';
  return rules.find(r=>name.startsWith(r.prefix))?.name||'未分類';
 }
 export function manufacturerIndex(products){
