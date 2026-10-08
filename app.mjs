@@ -1,4 +1,4 @@
-import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=47';
+import {manufacturerOf,manufacturerIndex,matchManufacturer} from './manufacturers.mjs?v=48';
 import {createSearch} from './search.mjs';
 import {listPriceFor,formatListPrice} from './prices.mjs?v=23';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -164,7 +164,7 @@ try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)t
   const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
   makers=makers.filter(m=>m.count>0);
  }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=47',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=48',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
