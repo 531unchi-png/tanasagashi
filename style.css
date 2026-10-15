@@ -81,3 +81,17 @@
  body.map-mode .map-areas-bottom{margin:20px 0 6px;padding:14px 0 4px;border-top:1px solid var(--line)}
  body.map-mode footer{display:none}
 }
+
+
+/* v64: harden the mobile location screen so only the floorplan region scrolls. */
+@media(max-width:700px){
+ body.map-mode{height:100dvh;min-height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+ body.map-mode>header{position:relative;top:auto;flex:0 0 auto}
+ body.map-mode>main{flex:1 1 auto;height:auto;min-height:0;width:100%;overflow:hidden;display:flex;flex-direction:column;padding-top:14px;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+ body.map-mode .search-panel{flex:0 0 auto;width:100%;margin-bottom:8px}
+ body.map-mode #map-view{flex:1 1 auto;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+ body.map-mode .map-fixed{flex:0 0 auto;overflow:hidden}
+ body.map-mode .map-scroll{flex:1 1 0;min-height:0;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+ body.map-mode .map-scroll>.map-grid{margin-top:4px}
+ body.map-mode #areas.map-areas-bottom{order:99;display:flex;margin:18px 0 10px;padding:14px 0 8px}
+}
