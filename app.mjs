@@ -168,13 +168,16 @@ try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)t
   const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
   makers=makers.filter(m=>m.count>0);
  }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=57',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=58',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
 const MAKER_FAVORITES_KEY='tanasagashi-maker-favorites-v1';
-function makerFavorites(){try{const v=JSON.parse(localStorage.getItem(MAKER_FAVORITES_KEY)||'[]');return Array.isArray(v)?v:[]}catch{return []}}
-function toggleMakerFavorite(name){const fav=makerFavorites(),i=fav.indexOf(name);if(i>=0)fav.splice(i,1);else fav.push(name);try{localStorage.setItem(MAKER_FAVORITES_KEY,JSON.stringify(fav))}catch{}renderManufacturers()}
+const MAKER_FAVORITES_COOKIE='tanasagashi_maker_favorites';
+function makerFavoritesCookie(){try{const hit=document.cookie.split('; ').find(x=>x.startsWith(MAKER_FAVORITES_COOKIE+'='));if(!hit)return [];const v=JSON.parse(decodeURIComponent(hit.slice(hit.indexOf('=')+1)));return Array.isArray(v)?v:[]}catch{return []}}
+function saveMakerFavorites(fav){const value=JSON.stringify(fav);try{localStorage.setItem(MAKER_FAVORITES_KEY,value)}catch{}try{document.cookie=MAKER_FAVORITES_COOKIE+'='+encodeURIComponent(value)+'; Max-Age=31536000; Path=/; SameSite=Lax; Secure'}catch{}}
+function makerFavorites(){let v=[];try{const raw=localStorage.getItem(MAKER_FAVORITES_KEY);if(raw){const parsed=JSON.parse(raw);if(Array.isArray(parsed))v=parsed}}catch{}if(!v.length){v=makerFavoritesCookie();if(v.length)saveMakerFavorites(v)}return v}
+function toggleMakerFavorite(name){const fav=makerFavorites(),i=fav.indexOf(name);if(i>=0)fav.splice(i,1);else fav.push(name);saveMakerFavorites(fav);renderManufacturers()}
 function renderManufacturers(){
  const fav=makerFavorites();
  const shown=makers.filter(m=>matchManufacturer(m,$('manufacturer-query').value)).sort((x,y)=>{const xi=fav.indexOf(x.name),yi=fav.indexOf(y.name),xf=xi>=0,yf=yi>=0;if(xf&&yf)return xi-yi;if(xf)return -1;if(yf)return 1;return 0});
