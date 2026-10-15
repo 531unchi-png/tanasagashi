@@ -62,3 +62,22 @@
  body.results-mode #results-view{padding-bottom:14px}
  #map-view,#manufacturers-view,#photos-view,#quality-view,#orders-view{padding-bottom:18px}
 }
+
+
+/* v63 map screen: page selector stays fixed; floorplan content scrolls; area buttons live at the bottom. */
+@media(max-width:700px){
+ body.map-mode{height:100dvh;overflow:hidden;padding-bottom:0}
+ body.map-mode header{position:relative;flex:0 0 auto}
+ body.map-mode main{height:calc(100dvh - 70px);overflow:hidden;display:flex;flex-direction:column;padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+ body.map-mode .search-panel{flex:0 0 auto;margin-bottom:10px}
+ body.map-mode #loading{display:none}
+ body.map-mode #map-view{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;padding-bottom:0}
+ body.map-mode #map-view[hidden]{display:none!important}
+ body.map-mode .map-fixed{flex:0 0 auto;background:#f4f7f9;z-index:3}
+ body.map-mode .map-fixed .sectionhead{margin:4px 0 8px}
+ body.map-mode .map-fixed .chips{padding-bottom:8px}
+ body.map-mode .map-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 1px 22px}
+ body.map-mode .map-grid{display:grid}
+ body.map-mode .map-areas-bottom{margin:20px 0 6px;padding:14px 0 4px;border-top:1px solid var(--line)}
+ body.map-mode footer{display:none}
+}
