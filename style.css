@@ -95,3 +95,16 @@
  body.map-mode .map-scroll>.map-grid{margin-top:4px}
  body.map-mode #areas.map-areas-bottom{order:99;display:flex;margin:18px 0 10px;padding:14px 0 8px}
 }
+
+/* v65: ensure scroll containment without any document scrolling on location tab. */
+@media(max-width:700px){
+ html:has(body.map-mode){height:100%;overflow:hidden}
+ body.map-mode{position:fixed!important;inset:0!important;width:100%!important;height:100dvh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+ body.map-mode>header{flex:none!important}
+ body.map-mode>main{min-height:0!important;flex:1 1 0!important;overflow:hidden!important}
+ body.map-mode #map-view{height:auto!important;min-height:0!important;flex:1 1 0!important}
+ body.map-mode .map-fixed{flex:none!important;min-height:0}
+ body.map-mode .map-scroll{display:block!important;overflow-y:auto!important;overflow-x:hidden!important;flex:1 1 0!important;min-height:0!important}
+ body.map-mode .map-scroll .map-grid{display:grid}
+ body.map-mode #areas.map-areas-bottom{display:flex!important;position:static!important;order:initial!important;clear:both!important}
+}
