@@ -161,17 +161,6 @@ $('zoom-in').addEventListener('click',e=>{e.preventDefault();e.stopPropagation()
 $('zoom-out').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyZoom(-.25);});
 $('issue-type').onchange=renderQuality;
 $('clear-cache').onclick=async()=>{for(const k of await caches.keys())if(k.startsWith('tanasagashi-'))await caches.delete(k);for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();$('connection').textContent='端末保存を削除済み';};
-try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);
- const bsCarryoutCount=data.products.filter(isBsCarryoutSocket).length;
- if(bsCarryoutCount){
-  const bs=makers.find(m=>m.name==='BS'); if(bs)bs.count=Math.max(0,bs.count-bsCarryoutCount);
-  const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
-  makers=makers.filter(m=>m.count>0);
- }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=59',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
-
-
-
 const MAKER_FAVORITES_KEY='tanasagashi-maker-favorites-v1';
 const MAKER_FAVORITES_COOKIE='tanasagashi_maker_favorites';
 let makerFavoriteState=null;
@@ -179,6 +168,17 @@ function makerFavoritesCookie(){try{const hit=document.cookie.split('; ').find(x
 function saveMakerFavorites(fav){makerFavoriteState=[...fav];const value=JSON.stringify(makerFavoriteState);try{localStorage.setItem(MAKER_FAVORITES_KEY,value)}catch{}try{document.cookie=MAKER_FAVORITES_COOKIE+'='+encodeURIComponent(value)+'; Max-Age=31536000; Path=/; SameSite=Lax; Secure'}catch{}}
 function makerFavorites(){if(Array.isArray(makerFavoriteState))return [...makerFavoriteState];let v=[];try{const raw=localStorage.getItem(MAKER_FAVORITES_KEY);if(raw){const parsed=JSON.parse(raw);if(Array.isArray(parsed))v=parsed}}catch{}if(!v.length)v=makerFavoritesCookie();makerFavoriteState=[...v];if(v.length)saveMakerFavorites(v);return [...makerFavoriteState]}
 function toggleMakerFavorite(name){const fav=makerFavorites(),i=fav.indexOf(name);if(i>=0)fav.splice(i,1);else fav.push(name);saveMakerFavorites(fav);renderManufacturers()}
+try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();search=createSearch(data.products);loadOrders();matches=search('');$('loading').hidden=true;$('total').textContent=data.products.length.toLocaleString()+'件 / '+data.locations.filter(l=>l.count).length+'棚';makers=manufacturerIndex(data.products);
+ const bsCarryoutCount=data.products.filter(isBsCarryoutSocket).length;
+ if(bsCarryoutCount){
+  const bs=makers.find(m=>m.name==='BS'); if(bs)bs.count=Math.max(0,bs.count-bsCarryoutCount);
+  const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
+  makers=makers.filter(m=>m.count>0);
+ }
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=60',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+
+
+
 function renderManufacturers(){
  const fav=makerFavorites();
  const shown=makers.filter(m=>matchManufacturer(m,$('manufacturer-query').value)).sort((x,y)=>{const xi=fav.indexOf(x.name),yi=fav.indexOf(y.name),xf=xi>=0,yf=yi>=0;if(xf&&yf)return xi-yi;if(xf)return -1;if(yf)return 1;return 0});
