@@ -15,3 +15,16 @@
 
 
 .sale-price{display:flex;align-items:baseline;gap:7px;margin-top:5px;padding:8px 10px;border-radius:10px;background:#eaf8ef;color:#145c32}.sale-price span{font-size:12px;font-weight:800}.sale-price strong{font-size:19px}.sale-price small{margin-left:auto;font-size:10px;color:#3c7453}.detail-sale-row{background:#eaf8ef;margin:4px 0;padding:11px 8px!important;border-radius:9px}.detail-sale-row dd strong{font-size:22px;color:#145c32}.detail-sale-row dd span{font-size:12px;font-weight:750;color:#277044}.detail-sale-row small{display:block;margin-top:3px;font-size:10px;color:var(--muted)}
+
+/* Product list: keep search and navigation fixed while only the list pane scrolls. */
+@media(max-width:700px){
+ body.results-mode{height:100dvh;overflow:hidden}
+ body.results-mode header{position:relative;flex:0 0 auto}
+ body.results-mode main{height:calc(100dvh - 70px);overflow:hidden;display:flex;flex-direction:column;padding-bottom:0}
+ body.results-mode .search-panel{flex:0 0 auto;margin-bottom:10px}
+ body.results-mode nav{flex:0 0 auto;margin-bottom:8px}
+ body.results-mode #loading{display:none}
+ body.results-mode #results-view{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 2px calc(18px + env(safe-area-inset-bottom));scroll-margin-top:0}
+ body.results-mode #results-view>.sectionhead{position:sticky;top:0;z-index:4;background:#f4f7f9;margin:0;padding:10px 0 7px}
+ body.results-mode footer{display:none}
+}
