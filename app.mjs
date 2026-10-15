@@ -9,7 +9,7 @@ const pageNames=['倉庫1階 A・B・C','倉庫2階 D','本管倉庫 E・F','KP�
 let manufacturer='',makers=[];let orders=[],activeOrderId='';
 let data,search,page=6,area='',shelf='',tab='map',limit=50,zoom=1,matches=[],timer,request=0;
 const areas='ABCDEFGHIJ'.split('');
-function setTab(t){tab=t;for(const x of ['map','manufacturers','photos','results','quality','orders'])$(x+'-view').hidden=x!==t;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));}
+function setTab(t){tab=t;for(const x of ['map','manufacturers','photos','results','quality','orders'])$(x+'-view').hidden=x!==t;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));document.body.classList.toggle('results-mode',t==='results');if(t==='results')requestAnimationFrame(()=>{$('results-view').scrollTop=0;});}
 function location(id){return data.locations.find(x=>x.id===id);}
 function place(id){const l=location(id);return l?.boxes.length?[...new Set(l.boxes.map(b=>pageNames[b.page-1].split(' ')[0]))].join(' / '):id[0]==='J'?'事務所・個別位置未確定':'図面位置未確定';}
 function isBsCarryoutSocket(p){return /^BCMS[-0-9X]+$/i.test(String(p.code||'').normalize('NFKC').replace(/[\s　]/g,''))||/^BS.*持出しソケット/.test(String(p.name||'').normalize('NFKC').replace(/[\s　]/g,''));}
@@ -167,7 +167,7 @@ try{const response=await fetch('data.json',{cache:'no-store'});if(!response.ok)t
   const unc=makers.find(m=>m.name==='未分類'); if(unc)unc.count+=bsCarryoutCount; else makers.push({name:'未分類',count:bsCarryoutCount,terms:['未分類']});
   makers=makers.filter(m=>m.count>0);
  }
- renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=53',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
+ renderManufacturers();renderPhotos();renderMap();renderQuality();setTab('map');$('connection').textContent=navigator.onLine?'商品データ読込済み':'オフライン';if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=54',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{$('connection').textContent='オンライン利用';});navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='cached')$('connection').textContent='端末に保存済み';});}window.addEventListener('offline',()=>{$('connection').textContent='オフライン';});window.addEventListener('online',()=>{$('connection').textContent='オンライン';});}catch(error){$('loading').innerHTML='データを読み込めませんでした。<br><button id="retry-load">再読み込み</button>';$('connection').textContent='読込エラー';$('retry-load')?.addEventListener('click',()=>window.location.reload());console.error(error);}
 
 
 
