@@ -28,3 +28,11 @@
  body.results-mode #results-view>.sectionhead{position:sticky;top:0;z-index:4;background:#f4f7f9;margin:0;padding:10px 0 7px}
  body.results-mode footer{display:none}
 }
+
+/* Always-available mobile home button. */
+.home-fab{display:none}
+@media(max-width:700px){
+ .home-fab{position:fixed;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:18;display:flex;align-items:center;justify-content:center;gap:5px;min-width:88px;height:50px;padding:7px 13px;border:1px solid #b8d4df;border-radius:25px;background:rgba(255,255,255,.96);color:var(--navy);font-weight:850;box-shadow:0 8px 24px #08283b35;backdrop-filter:blur(10px)}
+ .home-fab>span{font-size:13px}
+ body.results-mode #results-view{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+}
