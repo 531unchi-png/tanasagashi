@@ -108,3 +108,28 @@
  body.map-mode .map-scroll .map-grid{display:grid}
  body.map-mode #areas.map-areas-bottom{display:flex!important;position:static!important;order:initial!important;clear:both!important}
 }
+
+/* v66: compact fixed chrome on the mobile map screen to maximize floorplan viewport. */
+@media(max-width:700px){
+ body.map-mode>header{padding:7px 10px!important;gap:7px!important;min-height:0!important}
+ body.map-mode .brand{gap:7px!important;min-width:0}
+ body.map-mode .brandmark{width:36px!important;height:36px!important;border-radius:11px!important;font-size:21px!important;flex:none}
+ body.map-mode .brand strong{font-size:17px!important;line-height:1.05}
+ body.map-mode .brand small{font-size:9px!important;line-height:1.1;margin-top:2px}
+ body.map-mode header button,body.map-mode header a{min-height:36px!important;padding:6px 8px!important;font-size:11px!important}
+ body.map-mode .connection{padding:4px 6px!important;font-size:9px!important;line-height:1.15}
+ body.map-mode>main{padding-top:7px!important}
+ body.map-mode .search-panel{margin-bottom:4px!important}
+ body.map-mode .search-panel label{font-size:15px!important;line-height:1.1}
+ body.map-mode .searchbox{margin-top:5px!important;border-radius:14px!important}
+ body.map-mode .searchbox>span{font-size:22px!important;padding:0 8px!important}
+ body.map-mode .searchbox input{padding:9px 0!important;font-size:14px!important}
+ body.map-mode .searchbox input::placeholder{font-size:12px!important}
+ body.map-mode .searchbox button{min-height:38px!important;padding:5px 10px!important}
+ body.map-mode .search-panel .hint{font-size:10px!important;line-height:1.15!important;margin:4px 0 5px!important;padding-left:2px!important}
+ body.map-mode .map-fixed .sectionhead{margin:1px 0 4px!important}
+ body.map-mode .map-fixed .sectionhead h1{font-size:18px!important;line-height:1.15!important}
+ body.map-mode .map-fixed .sectionhead>span{font-size:11px!important}
+ body.map-mode .map-fixed .chips{gap:5px!important;padding:1px 0 4px!important}
+ body.map-mode .map-fixed .chips button{font-size:11px!important;line-height:1.1!important;padding:7px 10px!important;min-height:34px!important;border-radius:11px!important}
+}
